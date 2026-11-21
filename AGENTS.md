@@ -55,10 +55,6 @@ If Rust must differ from Go on purpose, explain each difference in the PR body w
 
 - Sign off every commit with `git commit -s` (DCO).
 - PR titles use `<area>: <summary>`, for example `parse: add OpenMetrics 1.0 parser`.
-- Link the relevant GitHub issue, if any.
+- Link the relevant GitHub issue, if any. Use `Fixes #N` only when the PR meets all of the issue's acceptance criteria, otherwise use `Refs #N`.
 
-Run these audits before opening or updating a PR.
-
-- **Tree audit.** Use `git grep -n -F` to search the repository for changed identifiers and relevant issue references. For renames, search both the old and new names. Review matching call sites, tests, specs, and TODOs for stale references or assumptions.
-- **Claims audit.** Check behavior and compatibility claims in the PR description, commit messages, and changed spec text against the code, reference implementation, or verification results. Narrow or remove claims the evidence cannot support. For Go parity, state which behavior you verified and describe relevant known differences.
-- **Issue audit.** Check closing keywords in the PR description and commit messages against the issue's acceptance criteria. Use `Fixes #N` only when the change satisfies those criteria. For partial work, use `Refs #N` and keep the remaining work tracked in the original issue or a linked follow-up. Update TODOs and docs whose references would become stale.
+Do not claim Go parity for behavior you did not verify.
